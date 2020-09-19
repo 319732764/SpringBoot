@@ -1,0 +1,22 @@
+### 设定项目占有端口号
+server:
+  port: 9999
+### 配置项目应用名
+spring:
+  application:
+    name: user-register
+### 配置 Eureka Server 端信息
+eureka:
+  ### 设定 Eureka Server 的主机名
+  instance:
+    hostname: localhost
+  ### 相关其他配置信息
+  client:
+    ### 禁止注册中心中的其他应用将自己注册到注册中心
+    register-with-eureka: false
+    ### 禁止本注册中心去其他注册中心发现服务
+    fetch-registry: false
+    ### 设定注册中心注册地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+
