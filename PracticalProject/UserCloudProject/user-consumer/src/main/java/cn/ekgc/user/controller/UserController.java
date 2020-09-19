@@ -53,14 +53,14 @@ public class UserController {
 	}
 
 	/**
-	 * <b>修改用户状态</b>
+	 * <b>修改用户信息</b>
 	 * @param user
 	 * @return
 	 * @throws Exception
 	 */
 	@PostMapping("/update")
 	@ResponseBody
-	public boolean changeStatus(User user) throws Exception{
+	public boolean update(User user) throws Exception{
 		// 进行用户状态修改
 		boolean flag = userTransport.update(user);
 

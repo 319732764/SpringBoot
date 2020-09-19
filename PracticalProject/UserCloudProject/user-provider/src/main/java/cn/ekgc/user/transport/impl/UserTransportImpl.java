@@ -14,6 +14,12 @@ public class UserTransportImpl implements UserTransport {
 	private UserService userService;
 
 
+	/**
+	 * <b>查询分页信息</b>
+	 * @param page
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/page")
 	@Override
 	public Page<User> getPage(@RequestBody Page<User> page) throws Exception {
@@ -32,12 +38,24 @@ public class UserTransportImpl implements UserTransport {
 		return userService.save(user);
 	}
 
+	/**
+	 * <b>根据主键查询用户信息</b>
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/id")
 	@Override
 	public User getById(@RequestParam Long id) throws Exception {
 		return userService.getById(id);
 	}
 
+	/**
+	 * <b>修改用户信息</b>
+	 * @param user
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/update")
 	@Override
 	public boolean update(@RequestBody User user) throws Exception {
