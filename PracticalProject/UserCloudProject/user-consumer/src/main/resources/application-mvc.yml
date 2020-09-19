@@ -1,0 +1,10 @@
+### 设定 Thmeleaf 信息
+spring:
+  thymeleaf:
+    ### 禁止使用页面缓存
+    cache: false
+    ### 视图转发前缀
+    prefix: classpath:/view/
+    ### 视图转发后缀
+    suffix: .html
+

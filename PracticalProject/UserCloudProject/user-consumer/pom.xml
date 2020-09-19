@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>user-commoms</artifactId>
+	<artifactId>user-consumer</artifactId>
 
 	<!-- 使用 user-parent 作为父级依赖关系 [BEGIN] -->
 	<parent>
@@ -21,29 +21,24 @@
 	</properties>
 
 	<dependencies>
-		<!-- 引入 Eureka Client 的依赖关系 [BEGIN] -->
+		<!-- 配置使用 user-commons 依赖关系 [BEGIN] -->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<groupId>cn.ekgc.user</groupId>
+			<artifactId>user-commoms</artifactId>
+			<version>${parent.version}</version>
 		</dependency>
-		<!-- 引入 Eureka Client 的依赖关系 [END] -->
+		<!-- 配置使用 user-commons 依赖关系 [END] -->
 
-		<!-- 由于 user-Commons 会承接 Provider 和 Consumer 的共同部分，那么就包含远程调用接口，则需要组件 OpenFeign [BEGIN] -->
+		<!-- 为了进行转发 ，配置 Spring Boot Thymeleaf 依赖关系 [BEGIN]-->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<!-- 由于 user-Commons 会承接 Provider 和 Consumer 的共同部分，那么就包含远程调用接口，则需要组件 OpenFeign [END] -->
+		<!-- 为了进行转发 ，配置 Spring Boot Thymeleaf 依赖关系 [END]-->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>5.2.0</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
